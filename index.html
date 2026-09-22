@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Carte personnage — Karim Vallide</title>
+<script src="scormAPI.js"></script>
+<style>
+  body{margin:0;padding:40px;background:#E1DEDF;font-family:Arial, Helvetica, sans-serif;display:flex;justify-content:center;}
+  .pcard-wrap{width:300px;perspective:1400px;}
+  .pcard-inner{position:relative;width:100%;padding-top:135%;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.4,0,.2,1);cursor:pointer;}
+  .pcard-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 8px rgba(39,48,95,0.15);}
+  .pcard-back{transform:rotateY(180deg);}
+  .pcard-btn{display:block;margin:14px auto 0;font-size:13px;padding:6px 14px;border-radius:8px;border:1px solid #5587C2;background:#FFFFFF;color:#27305F;cursor:pointer;}
+</style>
+</head>
+<body>
+<div>
+<div class="pcard-wrap">
+  <div class="pcard-inner" id="c3" onclick="flip('c3')">
+    <div class="pcard-face" style="background:#FEF3E9;border:0.5px solid #E1DEDF;">
+      <div style="background:#27305F;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;">
+        <span style="color:#FEF3E9;font-size:10px;letter-spacing:1px;">NORVIA · INTERFACE</span>
+        <span style="background:#12B893;color:#04342C;font-size:9px;font-weight:500;padding:2px 7px;border-radius:20px;">PUBLIC</span>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;padding:16px 16px 12px;">
+        <svg width="96" height="96" viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="60" cy="60" r="58" fill="#E1DEDF"/>
+          <path d="M20 100 C20 72 36 58 60 58 C84 58 100 72 100 100 L100 118 L20 118 Z" fill="#12B893"/>
+          <path d="M42 100 L60 88 L78 100" fill="none" stroke="#FEF3E9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="60" cy="44" r="24" fill="#F18828"/>
+          <path d="M37 38 C37 22 83 22 83 38 C83 28 73 20 60 20 C47 20 37 28 37 38 Z" fill="#27305F"/>
+          <rect x="41" y="43" width="16" height="9" rx="4" fill="none" stroke="#27305F" stroke-width="2.5"/>
+          <rect x="63" y="43" width="16" height="9" rx="4" fill="none" stroke="#27305F" stroke-width="2.5"/>
+          <line x1="57" y1="47" x2="63" y2="47" stroke="#27305F" stroke-width="2.5"/>
+        </svg>
+        <p style="font-size:17px;font-weight:500;color:#27305F;margin:10px 0 1px;">Karim Vallide</p>
+        <p style="font-size:12px;color:#5587C2;margin:0 0 10px;">AMOA, cabinet externe</p>
+        <div style="width:100%;border-top:0.5px solid #E1DEDF;padding-top:8px;font-size:11.5px;color:#27305F;line-height:1.6;">
+          <p style="margin:0;"><strong>Mission :</strong> AMOA sur le projet depuis 2023</p>
+          <p style="margin:0;"><strong>Rattachement :</strong> reporte à Thierry Vasseur, DSI</p>
+          <p style="margin:0;"><strong>Statut :</strong> prestataire, non salarié Norvia</p>
+        </div>
+      </div>
+    </div>
+    <div class="pcard-face pcard-back" style="background:#27305F;">
+      <div style="background:#F18828;padding:8px 14px;">
+        <span style="color:#412402;font-size:10px;font-weight:500;letter-spacing:1px;">CONFIDENTIEL</span>
+      </div>
+      <div style="flex:1;padding:14px;overflow:auto;color:#E1DEDF;font-size:11.5px;line-height:1.6;">
+        <p style="color:#F467A2;font-weight:500;margin:0 0 3px;">Attitude</p>
+        <p style="margin:0 0 10px;">Pointilleux, insiste sur la traçabilité et le circuit de validation.</p>
+        <p style="color:#F467A2;font-weight:500;margin:0 0 3px;">Info cachée</p>
+        <p style="margin:0 0 6px;">Norvia a déjà des échanges avec Edenred pour passer à la carte dématérialisée — initiés par la DRH sans concertation DSI.</p>
+        <p style="margin:0 0 10px;">Le mode de commande retenu (email vs espace client) conditionne le format d'export à paramétrer — attend que le consultant pose la question.</p>
+        <p style="color:#F467A2;font-weight:500;margin:0 0 3px;">Répliques</p>
+        <p style="margin:0;">« Aujourd'hui c'est distribué à la main sur les sites. » → « Ça, la DRH l'a déjà vu avec Edenred, mais je n'étais pas dans la boucle. » → « Vous comptez commander par email ou via leur espace client ? »</p>
+      </div>
+    </div>
+  </div>
+  <button class="pcard-btn" onclick="flip('c3')">Retourner</button>
+</div>
+</div>
+<script>
+function flip(id){
+  var el = document.getElementById(id);
+  var f = el.dataset.f === '1';
+  el.style.transform = f ? 'rotateY(0deg)' : 'rotateY(180deg)';
+  el.dataset.f = f ? '0' : '1';
+}
+</script>
+</body>
+</html>
